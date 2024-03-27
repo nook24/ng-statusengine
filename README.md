@@ -5,6 +5,8 @@ Simples Projekt welches die API von demo.statusengine.org abfragt.
 Das Angular Projekt kann local ausgeführt werden, da es die `Proxy-Option` von Angular
 nutzt um die Requests an `https://demo.statusengine.org/api` weiter zu leiten.
 
+![code](angular.png)
+
 ## setup
 
 Angular installieren (falls noch nicht)
