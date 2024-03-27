@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePipe, NgIf } from '@angular/common';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { NodesStatusIconComponent } from '../nodes-status-icon/nodes-status-icon.component';
 
 @Component({
   selector: 'app-nodes-index',
@@ -18,7 +19,8 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
     MatTableModule,
     MatSortModule,
     NgIf,
-    DatePipe
+    DatePipe,
+    NodesStatusIconComponent
   ],
   templateUrl: './nodes-index.component.html',
   styleUrl: './nodes-index.component.css'

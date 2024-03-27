@@ -10,7 +10,9 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by current state">
             Current State
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.current_state}} </td>
+        <td mat-cell *matCellDef="let element">
+            <app-nodes-status-icon [state]="element.current_state"></app-nodes-status-icon>
+        </td>
     </ng-container>
 
     <ng-container matColumnDef="hostname">
