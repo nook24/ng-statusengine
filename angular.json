@@ -61,7 +61,8 @@
               "buildTarget": "ng-statusengine:build:production"
             },
             "development": {
-              "buildTarget": "ng-statusengine:build:development"
+              "buildTarget": "ng-statusengine:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

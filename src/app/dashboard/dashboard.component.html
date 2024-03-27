@@ -1,1 +1,85 @@
-<p>dashboard works!</p>
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>
+            <mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
+            Dashboard
+        </mat-card-title>
+        <mat-card-subtitle>
+            Overview
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+        <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-tile>
+                Monitored nodes: {{ dashboard.number_of_monitored_hosts }}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Monitored services: {{ dashboard.number_of_monitored_services }}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Detected issues: {{ dashboard.number_of_service_problems }}
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>
+            <mat-icon aria-hidden="false" fontIcon="dns"></mat-icon>
+            Node summary overview
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <!-- format der Zahlen: https://angular.io/api/common/DecimalPipe-->
+        <div>
+            Hosts up: {{dashboard.hoststatus_overview.up}}
+            ( {{ dashboard.hoststatus_overview.up * 100 / dashboard.number_of_monitored_hosts | number: '1.0-2'}} %)
+        </div>
+
+        <div>
+            Hosts down: {{dashboard.hoststatus_overview.down}}
+            ( {{ dashboard.hoststatus_overview.up * 100 / dashboard.number_of_monitored_hosts | number:  '1.0-2'}} %)
+        </div>
+
+        <div>
+            Hosts unreachable: {{dashboard.hoststatus_overview.unreachable}}
+            ( {{ dashboard.hoststatus_overview.up * 100 / dashboard.number_of_monitored_hosts | number:  '1.0-2' }} %)
+        </div>
+
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>
+            <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>
+            Service summary overview
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <div>
+            Services ok: {{dashboard.servicestatus_overview.ok}}
+            ( {{ dashboard.servicestatus_overview.ok * 100 / dashboard.number_of_monitored_services | number}} %)
+        </div>
+
+        <div>
+            Services warming: {{dashboard.servicestatus_overview.warning}}
+            ( {{ dashboard.servicestatus_overview.warning * 100 / dashboard.number_of_monitored_services | number}} %)
+        </div>
+
+        <div>
+            Services critical: {{dashboard.servicestatus_overview.critical}}
+            ( {{ dashboard.servicestatus_overview.critical * 100 / dashboard.number_of_monitored_services | number}} %)
+        </div>
+
+        <div>
+            Services unknown: {{dashboard.servicestatus_overview.unknown}}
+            ( {{ dashboard.servicestatus_overview.unknown * 100 / dashboard.number_of_monitored_services | number}} %)
+        </div>
+    </mat-card-content>
+</mat-card>
