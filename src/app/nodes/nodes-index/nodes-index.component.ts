@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NodeIndex, NodesIndexParams } from '../nodes.interface';
 import { NodesService } from '../nodes.service';
@@ -6,6 +6,8 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePipe, NgIf } from '@angular/common';
+import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-nodes-index',
@@ -14,6 +16,7 @@ import { DatePipe, NgIf } from '@angular/common';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatSortModule,
     NgIf,
     DatePipe
   ],
@@ -27,10 +30,10 @@ export class NodesIndexComponent {
   private NodesService = inject(NodesService)
   public nodes!: NodeIndex[];
 
-  public displayedColumns: string[] = ['state', 'node_name', 'last_check', 'state_since', 'service_summary'];
+  public displayedColumns: string[] = ['current_state', 'hostname', 'last_check', 'last_state_change', 'service_summary'];
   public dataSource: MatTableDataSource<NodeIndex> | null = null;
 
-  private params: NodesIndexParams= {
+  private params: NodesIndexParams = {
     'state[]': [false, false, false], // Etwas blöde URL: https://stackoverflow.com/a/47218084
     'direction': 'asc',
     'order': 'hostname',
@@ -39,7 +42,7 @@ export class NodesIndexComponent {
     'offset': 0
   }
 
-  constructor() {
+  constructor(private _liveAnnouncer: LiveAnnouncer) {
     this.loadNodes();
   }
 
@@ -57,7 +60,7 @@ export class NodesIndexComponent {
 
   public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    if(this.dataSource){
+    if (this.dataSource) {
       // GET Parameter für den HTTP Request anpassen
       this.params.hostname__like = filterValue.trim();
       // Liste neu laden
@@ -69,4 +72,18 @@ export class NodesIndexComponent {
     this.subscriptions.unsubscribe();
   }
 
+  @ViewChild(MatSort, { static: false }) sort!: MatSort;
+
+  ngAfterViewInit() {
+    if (this.dataSource) {
+      this.dataSource.sort = this.sort;
+    }
+  }
+
+  /** Announce the change in sort state for assistive technology. */
+  announceSortChange(sortState: Sort) {
+    this.params.direction = sortState.direction;
+    this.params.order = sortState.active;
+    this.loadNodes();
+  }
 }
