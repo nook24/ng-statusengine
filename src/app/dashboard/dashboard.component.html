@@ -1,4 +1,4 @@
-<mat-card class="dashboard-card">
+<mat-card class="dashboard-card" *ngIf="dashboard">
     <mat-card-header>
         <mat-card-title>
             <mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
@@ -25,7 +25,7 @@
     </mat-card-content>
 </mat-card>
 
-<mat-card class="dashboard-card">
+<mat-card class="dashboard-card" *ngIf="dashboard">
     <mat-card-header>
         <mat-card-title>
             <mat-icon aria-hidden="false" fontIcon="dns"></mat-icon>
@@ -53,7 +53,7 @@
     </mat-card-content>
 </mat-card>
 
-<mat-card class="dashboard-card">
+<mat-card class="dashboard-card" *ngIf="dashboard">
     <mat-card-header>
         <mat-card-title>
             <mat-icon aria-hidden="false" fontIcon="settings"></mat-icon>

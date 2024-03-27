@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DashboardService } from './dashboard.service';
 import { DashboardRoot } from './dashboard.interface';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { DecimalPipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { DecimalPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +17,7 @@ import { DecimalPipe } from '@angular/common';
     MatIconModule,
     MatGridListModule,
     DecimalPipe,
+    NgIf
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
@@ -26,9 +27,6 @@ export class DashboardComponent {
   private subscriptions: Subscription = new Subscription();
   private DashboardService = inject(DashboardService);
   public dashboard!: DashboardRoot;
-
-  public hostColumns = ['State', 'Count', 'Percentage'];
-
 
   constructor() {
     this.loadDashboard();
