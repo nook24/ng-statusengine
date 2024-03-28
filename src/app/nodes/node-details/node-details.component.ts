@@ -1,11 +1,15 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
+import {AlertComponent} from "@coreui/angular";
+import {LayoutCoreuiComponent} from "../../layouts/layout-coreui/layout-coreui.component";
 
 @Component({
   selector: 'app-node-details',
   standalone: true,
   imports: [
+    LayoutCoreuiComponent,
+    AlertComponent
   ],
   templateUrl: './node-details.component.html',
   styleUrl: './node-details.component.css'

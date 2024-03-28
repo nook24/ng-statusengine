@@ -14,11 +14,13 @@ import {DebounceDirective} from "../../directives/debounce.directive";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {TrueFalseDirective} from "../../true-false.directive";
 import {RouterLink} from "@angular/router";
+import {LayoutMaterialComponent} from "../../layouts/layout-material/layout-material.component";
 
 @Component({
   selector: 'app-nodes-index',
   standalone: true,
   imports: [
+    LayoutMaterialComponent,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,

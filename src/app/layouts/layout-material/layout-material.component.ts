@@ -12,9 +12,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css',
+  selector: 'app-layout-material',
+  templateUrl: './layout-material.component.html',
+  styleUrl: './layout-material.component.css',
   standalone: true,
   imports: [
     MatToolbarModule,
@@ -27,7 +27,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     RouterOutlet
   ]
 })
-export class NavigationComponent {
+export class LayoutMaterialComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

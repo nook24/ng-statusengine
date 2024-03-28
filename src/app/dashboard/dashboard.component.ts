@@ -7,11 +7,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DecimalPipe, NgIf } from '@angular/common';
+import {LayoutMaterialComponent} from "../layouts/layout-material/layout-material.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
+    LayoutMaterialComponent,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
