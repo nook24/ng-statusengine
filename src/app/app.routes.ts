@@ -4,8 +4,8 @@ import { NodesIndexComponent } from './nodes/nodes-index/nodes-index.component';
 
 export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'nodes', component: NodesIndexComponent },
+    { path: 'nodes/index', component: NodesIndexComponent },
 
-    
+
     { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
 ];

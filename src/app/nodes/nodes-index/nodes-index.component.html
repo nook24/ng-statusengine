@@ -12,9 +12,11 @@
   <div>
     <label>
       Status Up
-      <input type="checkbox" [(ngModel)]="params['state[0]']"
+      <input type="checkbox"  [(ngModel)]="params['state[0]']"
              appDebounce
              (debouncedValue)="onSearchTermChange($event)"
+             trueFalseValue
+             trueValue="up"
              name="state_up">
     </label>
   </div>
@@ -25,6 +27,8 @@
       <input type="checkbox"  [(ngModel)]="params['state[1]']"
              appDebounce
              (debouncedValue)="onSearchTermChange($event)"
+             trueFalseValue
+             trueValue="down"
              name="state_down">
     </label>
   </div>
@@ -35,6 +39,8 @@
       <input type="checkbox"  [(ngModel)]="params['state[2]']"
              appDebounce
              (debouncedValue)="onSearchTermChange($event)"
+             trueFalseValue
+             trueValue="unreachable"
              name="state_unreachable">
     </label>
   </div>

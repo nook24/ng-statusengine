@@ -11,6 +11,8 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {NodesStatusIconComponent} from '../nodes-status-icon/nodes-status-icon.component';
 import {FormsModule} from "@angular/forms";
 import {DebounceDirective} from "../../directives/debounce.directive";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {TrueFalseDirective} from "../../true-false.directive";
 
 @Component({
   selector: 'app-nodes-index',
@@ -24,7 +26,8 @@ import {DebounceDirective} from "../../directives/debounce.directive";
     DatePipe,
     NodesStatusIconComponent,
     FormsModule,
-    DebounceDirective
+    DebounceDirective,
+    TrueFalseDirective
   ],
   templateUrl: './nodes-index.component.html',
   styleUrl: './nodes-index.component.css'

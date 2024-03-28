@@ -6,7 +6,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['dashboard']">Dashboard</a>
-      <a mat-list-item [routerLink]="['nodes']">Nodes</a>
+      <a mat-list-item [routerLink]="['nodes', 'index']">Nodes</a>
 
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
@@ -26,7 +26,7 @@
       <span>ng-statusengine</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    
+
     <div id="main">
       <router-outlet />
     </div>
