@@ -51,7 +51,9 @@ export interface ServicestatusOverview {
 }
 
 export interface NodesIndexParams {
-  'state[]': boolean[],
+  'state[0]': boolean|string,
+  'state[1]': boolean|string,
+  'state[2]': boolean|string,
   direction: string,
   order: string,
   hostname__like: string
