@@ -28,3 +28,6 @@ ng serve
 ## nützliches
 
 TypeScript interfaces von einem JSON erzeugen: https://transform.tools/json-to-typescript
+
+Mono-Type sollte in den Einstellungen deaktiviert sein.
+![JSON to TS](json_to_ts.png)
