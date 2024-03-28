@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import {DebounceDirective} from "../../directives/debounce.directive";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {TrueFalseDirective} from "../../true-false.directive";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-nodes-index',
@@ -27,7 +28,8 @@ import {TrueFalseDirective} from "../../true-false.directive";
     NodesStatusIconComponent,
     FormsModule,
     DebounceDirective,
-    TrueFalseDirective
+    TrueFalseDirective,
+    RouterLink
   ],
   templateUrl: './nodes-index.component.html',
   styleUrl: './nodes-index.component.css'

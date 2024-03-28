@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {provideRouter, withComponentInputBinding} from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -11,7 +11,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     { provide: PROXY_PATH, useValue: '/api' },
     provideHttpClient(),
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideAnimationsAsync()
   ]
 };
