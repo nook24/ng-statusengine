@@ -122,3 +122,24 @@ export interface NodeDetailsServicestatus {
   last_state_change: number
 }
 
+export interface NodeChecksParams {
+  'state[0]': boolean | string,
+  'state[1]': boolean | string,
+  'state[2]': boolean | string,
+  direction: string,
+  order: string,
+  hostname: string,
+  output__like: string
+  limit: number,
+  offset: number
+}
+
+export interface Nodecheck {
+  is_hardstate: boolean
+  hostname: string
+  output: string
+  state: number
+  current_check_attempt: number
+  max_check_attempts: number
+  start_time: number
+}

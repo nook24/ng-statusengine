@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {Subscription} from "rxjs";
-import {AlertComponent} from "@coreui/angular";
+import {AlertComponent, ButtonDirective} from "@coreui/angular";
 import {LayoutCoreuiComponent} from "../../layouts/layout-coreui/layout-coreui.component";
 
 @Component({
@@ -9,7 +9,9 @@ import {LayoutCoreuiComponent} from "../../layouts/layout-coreui/layout-coreui.c
   standalone: true,
   imports: [
     LayoutCoreuiComponent,
-    AlertComponent
+    AlertComponent,
+    ButtonDirective,
+    RouterLink
   ],
   templateUrl: './node-details.component.html',
   styleUrl: './node-details.component.css'
