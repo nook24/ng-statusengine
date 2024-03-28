@@ -51,12 +51,74 @@ export interface ServicestatusOverview {
 }
 
 export interface NodesIndexParams {
-  'state[0]': boolean|string,
-  'state[1]': boolean|string,
-  'state[2]': boolean|string,
+  'state[0]': boolean | string,
+  'state[1]': boolean | string,
+  'state[2]': boolean | string,
   direction: string,
   order: string,
   hostname__like: string
   limit: number,
   offset: number
 }
+
+
+export interface NodeDetails {
+  hoststatus: NodeDetailsHoststatus
+  servicestatus: NodeDetailsServicestatus[]
+  external_urls: string[]
+}
+
+export interface NodeDetailsHoststatus {
+  notifications_enabled: boolean
+  active_checks_enabled: boolean
+  passive_checks_enabled: boolean
+  flap_detection_enabled: boolean
+  event_handler_enabled: boolean
+  is_flapping: boolean
+  is_hardstate: boolean
+  problem_has_been_acknowledged: boolean
+  hostname: string
+  node_name: string
+  current_check_attempt: number
+  max_check_attempts: number
+  current_state: number
+  output: string
+  long_output: string
+  perfdata: string
+  check_timeperiod: string
+  normal_check_interval: number
+  retry_check_interval: number
+  scheduled_downtime_depth: number
+  last_check: number
+  next_check: number
+  last_state_change: number
+  status_update_time: number
+}
+
+export interface NodeDetailsServicestatus {
+  notifications_enabled: boolean
+  active_checks_enabled: boolean
+  passive_checks_enabled: boolean
+  flap_detection_enabled: boolean
+  event_handler_enabled: boolean
+  is_flapping: boolean
+  is_hardstate: boolean
+  problem_has_been_acknowledged: boolean
+  hostname: string
+  service_description: string
+  node_name: string
+  current_check_attempt: number
+  max_check_attempts: number
+  current_state: number
+  output: string
+  long_output: string
+  perfdata: string
+  check_timeperiod: string
+  normal_check_interval: number
+  retry_check_interval: number
+  scheduled_downtime_depth: number
+  last_check: number
+  next_check: number
+  last_state_change: number
+}
+

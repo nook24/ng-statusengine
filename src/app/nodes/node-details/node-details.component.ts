@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
-import {NbCardModule} from "@nebular/theme";
 
 @Component({
   selector: 'app-node-details',
