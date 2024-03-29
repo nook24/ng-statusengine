@@ -1,1 +1,22 @@
-<p>scroll-index works!</p>
+<c-pagination *ngIf="scroll" aria-label="Page navigation example">
+  <li cPageItem>
+    <button cPageLink [hidden]="scroll.currentPage < 2" (click)="firstPage()">
+      First
+    </button>
+  </li>
+  <li cPageItem>
+    <button cPageLink [disabled]="!scroll.hasPrevPage" (click)="prevPage()">
+      Previous
+    </button>
+  </li>
+  <li cPageItem [active]="true">
+    <button cPageLink>
+      {{scroll.currentPage}}
+    </button>
+  </li>
+  <li cPageItem>
+    <button cPageLink [disabled]="!scroll.hasNextPage" (click)="nextPage()">
+      Next
+    </button>
+  </li>
+</c-pagination>
