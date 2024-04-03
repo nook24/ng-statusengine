@@ -7,19 +7,21 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DecimalPipe, NgIf } from '@angular/common';
-import {LayoutMaterialComponent} from "../layouts/layout-material/layout-material.component";
+import { LayoutAdminlteComponent } from '../layouts/layout-adminlte/layout-adminlte.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    LayoutMaterialComponent,
+    LayoutAdminlteComponent,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
     MatGridListModule,
     DecimalPipe,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

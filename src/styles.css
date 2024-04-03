@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* CoreUI ist hier bestimmt falsch, habe es aber nur hier zum laufen bekommen -.- */
-@import "@coreui/coreui/scss/coreui.scss";
+/*@import "@coreui/coreui/scss/coreui.scss";*/
+
+@import "assets/AdminLTE-3.2.0/css/adminlte.min.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.inline-icon {
+    display: inline-flex;
+    vertical-align: middle;
+}
