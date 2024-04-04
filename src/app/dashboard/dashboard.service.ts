@@ -1,31 +1,31 @@
-import { inject, Injectable, Signal, signal, WritableSignal } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { switchMap, Observable, map, tap, catchError, of, BehaviorSubject, retry } from "rxjs";
+import { map, Observable } from "rxjs";
 import { PROXY_PATH } from "../tokens/proxy-path.token";
 
 import { DashboardRoot } from "./dashboard.interface"
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class DashboardService {
 
-    private readonly http = inject(HttpClient);
-    private readonly document = inject(DOCUMENT);
-    private readonly proxyPath = inject(PROXY_PATH);
+  private readonly http = inject(HttpClient);
+  private readonly document = inject(DOCUMENT);
+  private readonly proxyPath = inject(PROXY_PATH);
 
-    public getDashboard(): Observable<DashboardRoot> {
-        const proxyPath = this.proxyPath;
+  public getDashboard(): Observable<DashboardRoot> {
+    const proxyPath = this.proxyPath;
 
-        const params = new HttpParams().set("hide_ack_and_downtime", false);
-        
-        return this.http.get<DashboardRoot>(`${proxyPath}/index.php`, { params: params }).pipe(
-            map(data => {
-                return data;
-            })
-        )
-    }
+    const params = new HttpParams().set("hide_ack_and_downtime", false);
+
+    return this.http.get<DashboardRoot>(`${proxyPath}/index.php`, {params: params}).pipe(
+      map(data => {
+        return data;
+      })
+    )
+  }
 
 }
 

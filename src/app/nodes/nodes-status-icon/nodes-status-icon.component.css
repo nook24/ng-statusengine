@@ -1,18 +1,18 @@
 .state {
-    margin: 15px;
-    text-align: center;
-    color: white;
-    background: blue;
+  margin: 15px;
+  text-align: center;
+  color: white;
+  background: blue;
 }
 
 .state-0 {
-    background: green;
+  background: green;
 }
 
 .state-1 {
-    background: red;
+  background: red;
 }
 
 .state-2 {
-    background: gray;
+  background: gray;
 }

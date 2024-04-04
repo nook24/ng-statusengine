@@ -28,9 +28,9 @@ import { RouterLink } from '@angular/router';
 })
 export class DashboardComponent {
 
+  public dashboard!: DashboardRoot;
   private subscriptions: Subscription = new Subscription();
   private DashboardService = inject(DashboardService);
-  public dashboard!: DashboardRoot;
 
   constructor() {
     this.loadDashboard();

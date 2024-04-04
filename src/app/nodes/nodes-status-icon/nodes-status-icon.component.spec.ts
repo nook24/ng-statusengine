@@ -10,8 +10,8 @@ describe('NodesStatusIconComponent', () => {
     await TestBed.configureTestingModule({
       imports: [NodesStatusIconComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(NodesStatusIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

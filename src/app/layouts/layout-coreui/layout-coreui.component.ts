@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AlertComponent} from "@coreui/angular";
+import { AlertComponent } from "@coreui/angular";
 
 @Component({
   selector: 'app-layout-coreui',

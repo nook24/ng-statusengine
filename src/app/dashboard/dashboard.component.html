@@ -7,7 +7,7 @@
         <div class="col-sm-6">
 
           <h1>
-            <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="speed"></mat-icon>
+            <mat-icon class="nav-icon" class="inline-icon" fontIcon="speed" inline="true"></mat-icon>
             Dashboard
           </h1>
         </div>
@@ -33,7 +33,7 @@
       <div class="col-md-4 col-sm-6 col-12">
         <div class="info-box">
           <span class="info-box-icon bg-primary">
-            <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="dns"></mat-icon>
+            <mat-icon class="nav-icon" class="inline-icon" fontIcon="dns" inline="true"></mat-icon>
           </span>
           <div class="info-box-content">
             <span class="info-box-text">Monitored nodes</span>
@@ -47,7 +47,7 @@
       <div class="col-md-4 col-sm-6 col-12">
         <div class="info-box">
           <span class="info-box-icon bg-secondary">
-            <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="settings"></mat-icon>
+            <mat-icon class="nav-icon" class="inline-icon" fontIcon="settings" inline="true"></mat-icon>
           </span>
           <div class="info-box-content">
             <span class="info-box-text">Monitored services</span>
@@ -61,7 +61,7 @@
       <div class="col-md-4 col-sm-6 col-12">
         <div class="info-box">
           <span class="info-box-icon bg-danger">
-            <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="error_outline"></mat-icon>
+            <mat-icon class="nav-icon" class="inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
           </span>
           <div class="info-box-content">
             <span class="info-box-text">Detected Issues</span>
@@ -80,7 +80,7 @@
         <div class="card card-primary card-outline">
           <div class="card-header">
             <h3 class="card-title">
-              <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="dns"></mat-icon>
+              <mat-icon class="nav-icon" class="inline-icon" fontIcon="dns" inline="true"></mat-icon>
               Node status summary
             </h3>
             <div class="card-tools">
@@ -90,7 +90,7 @@
           <div class="card-body">
             <div class="info-box bg-success">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="check"></mat-icon>
+                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
               <div class="info-box-content">
                 <span class="info-box-text">Nodes Up</span>
@@ -99,7 +99,7 @@
                 </span>
                 <div class="progress">
                   <div class="progress-bar"
-                    style="width: {{ dashboard.hoststatus_overview.up * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
+                       style="width: {{ dashboard.hoststatus_overview.up * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
                   </div>
                 </div>
                 <span class="progress-description">
@@ -113,7 +113,7 @@
 
             <div class="info-box bg-danger">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="error_outline"></mat-icon>
+                <mat-icon class="nav-icon" class="inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
               </span>
               <div class="info-box-content">
                 <span class="info-box-text">Nodes Down</span>
@@ -122,7 +122,7 @@
                 </span>
                 <div class="progress">
                   <div class="progress-bar"
-                    style="width: {{ dashboard.hoststatus_overview.down * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
+                       style="width: {{ dashboard.hoststatus_overview.down * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
                   </div>
                 </div>
                 <span class="progress-description">
@@ -136,7 +136,7 @@
 
             <div class="info-box bg-secondary">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="check"></mat-icon>
+                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
               <div class="info-box-content">
                 <span class="info-box-text">Nodes Unreachable</span>
@@ -145,7 +145,7 @@
                 </span>
                 <div class="progress">
                   <div class="progress-bar"
-                    style="width: {{ dashboard.hoststatus_overview.unreachable * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
+                       style="width: {{ dashboard.hoststatus_overview.unreachable * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
                   </div>
                 </div>
                 <span class="progress-description">
@@ -166,7 +166,7 @@
         <div class="card card-primary card-outline">
           <div class="card-header">
             <h3 class="card-title">
-              <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="settings"></mat-icon>
+              <mat-icon class="nav-icon" class="inline-icon" fontIcon="settings" inline="true"></mat-icon>
               Service status summary
             </h3>
             <div class="card-tools">
@@ -176,7 +176,7 @@
           <div class="card-body">
             <div class="info-box bg-success">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="check"></mat-icon>
+                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
               <div class="info-box-content">
                 <span class="info-box-text">Services Ok</span>
@@ -185,7 +185,7 @@
                 </span>
                 <div class="progress">
                   <div class="progress-bar"
-                    style="width: {{ dashboard.servicestatus_overview.ok * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                       style="width: {{ dashboard.servicestatus_overview.ok * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
                   </div>
                 </div>
                 <span class="progress-description">
@@ -199,7 +199,7 @@
 
             <div class="info-box bg-warning">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="warning"></mat-icon>
+                <mat-icon class="nav-icon" class="inline-icon" fontIcon="warning" inline="true"></mat-icon>
               </span>
               <div class="info-box-content">
                 <span class="info-box-text">Services Warning</span>
@@ -208,7 +208,7 @@
                 </span>
                 <div class="progress">
                   <div class="progress-bar"
-                    style="width: {{ dashboard.servicestatus_overview.warning * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                       style="width: {{ dashboard.servicestatus_overview.warning * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
                   </div>
                 </div>
                 <span class="progress-description">
@@ -222,7 +222,7 @@
 
             <div class="info-box bg-danger">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="error_outline"></mat-icon>
+                <mat-icon class="nav-icon" class="inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
               </span>
               <div class="info-box-content">
                 <span class="info-box-text">Services Critical</span>
@@ -231,7 +231,7 @@
                 </span>
                 <div class="progress">
                   <div class="progress-bar"
-                    style="width: {{ dashboard.servicestatus_overview.critical * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                       style="width: {{ dashboard.servicestatus_overview.critical * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
                   </div>
                 </div>
                 <span class="progress-description">
@@ -245,7 +245,7 @@
 
             <div class="info-box bg-secondary">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" inline="true" class="inline-icon" fontIcon="check"></mat-icon>
+                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
               <div class="info-box-content">
                 <span class="info-box-text">Services Unknown</span>
@@ -254,7 +254,7 @@
                 </span>
                 <div class="progress">
                   <div class="progress-bar"
-                    style="width: {{ dashboard.servicestatus_overview.unknown * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                       style="width: {{ dashboard.servicestatus_overview.unknown * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
                   </div>
                 </div>
                 <span class="progress-description">

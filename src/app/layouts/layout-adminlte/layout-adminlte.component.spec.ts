@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutadminlteComponent } from './layout-adminlte.component';
-
 describe('LayoutAdminlteComponent', () => {
   let component: LayoutAdminlteComponent;
   let fixture: ComponentFixture<LayoutAdminlteComponent>;
@@ -10,8 +8,8 @@ describe('LayoutAdminlteComponent', () => {
     await TestBed.configureTestingModule({
       imports: [LayoutAdminlteComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(LayoutAdminlteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

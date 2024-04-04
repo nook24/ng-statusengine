@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -17,7 +17,8 @@ export class LayoutAdminlteComponent implements AfterViewInit {
 
   public isSidebarOpen: boolean = true
 
-  constructor(@Inject(DOCUMENT) private document: Document, private elementRef: ElementRef) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private elementRef: ElementRef) {
+  }
 
   // Open or close the main menu when the user press on the menu icon.
   // This is a brute force GoHorse implementation :)
@@ -39,7 +40,7 @@ export class LayoutAdminlteComponent implements AfterViewInit {
     this.elementRef.nativeElement.querySelector('#sidebar-overlay')
       .addEventListener('click', this.clickOrTouchOnSidebarOverlay.bind(this));
 
-      this.elementRef.nativeElement.querySelector('#sidebar-overlay')
+    this.elementRef.nativeElement.querySelector('#sidebar-overlay')
       .addEventListener('touchstart', this.clickOrTouchOnSidebarOverlay.bind(this));
   }
 

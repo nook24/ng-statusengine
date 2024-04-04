@@ -10,8 +10,8 @@ describe('LayoutCoreuiComponent', () => {
     await TestBed.configureTestingModule({
       imports: [LayoutCoreuiComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(LayoutCoreuiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

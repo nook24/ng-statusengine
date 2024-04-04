@@ -1,5 +1,5 @@
-import { Component, ViewChild, inject } from '@angular/core';
-import { NodeChecksParams, Nodecheck } from '../nodes.interface';
+import { Component, inject, ViewChild } from '@angular/core';
+import { Nodecheck, NodeChecksParams } from '../nodes.interface';
 import { Subscription } from 'rxjs';
 import { NodesService } from '../nodes.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -27,15 +27,10 @@ import { Scroll } from '../../pagination/paginator';
   styleUrl: './node-checks.component.css'
 })
 export class NodeChecksComponent {
-  private subscriptions: Subscription = new Subscription();
-  private NodesService = inject(NodesService)
   public nodechecks!: Nodecheck[];
-
   public displayedColumns: string[] = ['state', 'start_time', 'is_hardstate', 'output'];
   public dataSource: MatTableDataSource<Nodecheck> | null = null;
-
   public hostname_url: string = '';
-
   // Die API hat anscheinend kein order=DESC
   public params: NodeChecksParams = {
     'state[0]': false,
@@ -48,12 +43,14 @@ export class NodeChecksComponent {
     limit: 10,
     offset: 0
   };
-
   public scroll: Scroll = {
     hasNextPage: true,
     hasPrevPage: false,
     currentPage: 1
   };
+  @ViewChild(MatSort, {static: false}) sort!: MatSort;
+  private subscriptions: Subscription = new Subscription();
+  private NodesService = inject(NodesService)
 
   constructor(private route: ActivatedRoute) {
   }
@@ -69,23 +66,9 @@ export class NodeChecksComponent {
     }));
   }
 
-
-  private loadNodeChecks() {
-    this.subscriptions.add(this.NodesService.getNodeChecks(this.params)
-      .subscribe((checks) => {
-        this.nodechecks = checks; // Wird aktuell garnicht genutzt
-
-        // Wird für die Tabelle genutzt
-        this.dataSource = new MatTableDataSource(checks);
-      })
-    );
-  }
-
   public ngOnDestroy() {
     this.subscriptions.unsubscribe();
   }
-
-  @ViewChild(MatSort, { static: false }) sort!: MatSort;
 
   ngAfterViewInit() {
     if (this.dataSource) {
@@ -117,5 +100,16 @@ export class NodeChecksComponent {
     this.loadNodeChecks();
     return;
 
+  }
+
+  private loadNodeChecks() {
+    this.subscriptions.add(this.NodesService.getNodeChecks(this.params)
+      .subscribe((checks) => {
+        this.nodechecks = checks; // Wird aktuell garnicht genutzt
+
+        // Wird für die Tabelle genutzt
+        this.dataSource = new MatTableDataSource(checks);
+      })
+    );
   }
 }

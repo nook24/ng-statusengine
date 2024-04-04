@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { MatSlideToggle} from '@angular/material/slide-toggle'
+import { MatSlideToggle } from '@angular/material/slide-toggle'
 import { LayoutMaterialComponent } from './layouts/layout-material/layout-material.component';
 
 @Component({

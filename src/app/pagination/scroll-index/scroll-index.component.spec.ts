@@ -10,8 +10,8 @@ describe('ScrollIndexComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ScrollIndexComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(ScrollIndexComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

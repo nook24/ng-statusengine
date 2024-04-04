@@ -1,5 +1,5 @@
 import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import {debounceTime, Subject, distinctUntilChanged} from "rxjs";
+import { debounceTime, distinctUntilChanged, Subject } from "rxjs";
 
 
 @Directive({

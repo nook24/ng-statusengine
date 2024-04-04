@@ -1,20 +1,19 @@
-import {Component, ViewChild, inject} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {NodeIndex, NodesIndexParams} from '../nodes.interface';
-import {NodesService} from '../nodes.service';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {DatePipe, NgIf} from '@angular/common';
-import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {NodesStatusIconComponent} from '../nodes-status-icon/nodes-status-icon.component';
-import {FormsModule} from "@angular/forms";
-import {DebounceDirective} from "../../directives/debounce.directive";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {TrueFalseDirective} from "../../true-false.directive";
-import {RouterLink} from "@angular/router";
-import {LayoutMaterialComponent} from "../../layouts/layout-material/layout-material.component";
+import { Component, inject, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { NodeIndex, NodesIndexParams } from '../nodes.interface';
+import { NodesService } from '../nodes.service';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DatePipe, NgIf } from '@angular/common';
+import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { NodesStatusIconComponent } from '../nodes-status-icon/nodes-status-icon.component';
+import { FormsModule } from "@angular/forms";
+import { DebounceDirective } from "../../directives/debounce.directive";
+import { TrueFalseDirective } from "../../true-false.directive";
+import { RouterLink } from "@angular/router";
+import { LayoutMaterialComponent } from "../../layouts/layout-material/layout-material.component";
 
 @Component({
   selector: 'app-nodes-index',
@@ -39,13 +38,9 @@ import {LayoutMaterialComponent} from "../../layouts/layout-material/layout-mate
 export class NodesIndexComponent {
 
 
-  private subscriptions: Subscription = new Subscription();
-  private NodesService = inject(NodesService)
   public nodes!: NodeIndex[];
-
   public displayedColumns: string[] = ['current_state', 'hostname', 'last_check', 'last_state_change', 'service_summary'];
   public dataSource: MatTableDataSource<NodeIndex> | null = null;
-
   public params: NodesIndexParams = {
     //'state[]': [false, false, false], // Etwas blöde URL: https://stackoverflow.com/a/47218084
     'state[0]': true,
@@ -57,20 +52,12 @@ export class NodesIndexComponent {
     limit: 50,
     offset: 0
   }
+  @ViewChild(MatSort, {static: false}) sort!: MatSort;
+  private subscriptions: Subscription = new Subscription();
+  private NodesService = inject(NodesService)
 
   constructor(private _liveAnnouncer: LiveAnnouncer) {
     this.loadNodes();
-  }
-
-  private loadNodes() {
-    this.subscriptions.add(this.NodesService.getNodesIndex(this.params)
-      .subscribe((nodes) => {
-        this.nodes = nodes; // Wird aktuell garnicht genutzt
-
-        // Wird für die Tabelle genutzt
-        this.dataSource = new MatTableDataSource(nodes);
-      })
-    );
   }
 
 
@@ -91,8 +78,6 @@ export class NodesIndexComponent {
     this.subscriptions.unsubscribe();
   }
 
-  @ViewChild(MatSort, {static: false}) sort!: MatSort;
-
   ngAfterViewInit() {
     if (this.dataSource) {
       this.dataSource.sort = this.sort;
@@ -109,5 +94,16 @@ export class NodesIndexComponent {
   onSearchTermChange(searchTerm: any): void {
     console.log('Search term debounced:', this.params);
     this.loadNodes();
+  }
+
+  private loadNodes() {
+    this.subscriptions.add(this.NodesService.getNodesIndex(this.params)
+      .subscribe((nodes) => {
+        this.nodes = nodes; // Wird aktuell garnicht genutzt
+
+        // Wird für die Tabelle genutzt
+        this.dataSource = new MatTableDataSource(nodes);
+      })
+    );
   }
 }

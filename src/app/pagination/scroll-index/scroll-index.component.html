@@ -1,21 +1,21 @@
 <c-pagination *ngIf="scroll" aria-label="Page navigation example">
   <li cPageItem>
-    <button cPageLink [hidden]="scroll.currentPage < 2" (click)="firstPage()">
+    <button (click)="firstPage()" [hidden]="scroll.currentPage < 2" cPageLink>
       First
     </button>
   </li>
   <li cPageItem>
-    <button cPageLink [disabled]="!scroll.hasPrevPage" (click)="prevPage()">
+    <button (click)="prevPage()" [disabled]="!scroll.hasPrevPage" cPageLink>
       Previous
     </button>
   </li>
-  <li cPageItem [active]="true">
+  <li [active]="true" cPageItem>
     <button cPageLink>
-      {{scroll.currentPage}}
+      {{ scroll.currentPage }}
     </button>
   </li>
   <li cPageItem>
-    <button cPageLink [disabled]="!scroll.hasNextPage" (click)="nextPage()">
+    <button (click)="nextPage()" [disabled]="!scroll.hasNextPage" cPageLink>
       Next
     </button>
   </li>

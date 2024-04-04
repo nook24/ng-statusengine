@@ -1,5 +1,5 @@
-import {Directive, ElementRef, forwardRef, HostListener, Input, Renderer2} from '@angular/core';
-import {NG_VALUE_ACCESSOR} from "@angular/forms";
+import { Directive, ElementRef, forwardRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Directive({
   standalone: true,
@@ -17,14 +17,14 @@ export class TrueFalseDirective {
   // Many thanks to
   // https://egghead.io/lessons/angular-create-a-custom-form-control-using-angular-s-controlvalueaccessor
 
-  private propagateChange = (_: any) => {};
   @Input() trueValue: any = true;
   @Input() falseValue: any = false;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
+  }
 
   @HostListener('change', ['$event'])
-  onHostChange(ev:any) {
+  onHostChange(ev: any) {
     this.propagateChange(ev.target.checked ? this.trueValue : this.falseValue);
   }
 
@@ -42,8 +42,13 @@ export class TrueFalseDirective {
     this.propagateChange = fn;
   }
 
-  public registerOnTouched(fn: any): void {}
+  public registerOnTouched(fn: any): void {
+  }
 
-  public setDisabledState?(isDisabled: boolean): void {}
+  public setDisabledState?(isDisabled: boolean): void {
+  }
+
+  private propagateChange = (_: any) => {
+  };
 
 }
