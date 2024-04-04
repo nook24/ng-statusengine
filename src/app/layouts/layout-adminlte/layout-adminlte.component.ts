@@ -2,13 +2,15 @@ import { AfterViewInit, Component, ElementRef, Inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ChangeLanguageComponent } from "../../change-language/change-language.component";
 
 @Component({
   selector: 'app-layout-adminlte',
   standalone: true,
   imports: [
     MatIconModule,
-    RouterLink
+    RouterLink,
+    ChangeLanguageComponent
   ],
   templateUrl: './layout-adminlte.component.html',
   styleUrl: './layout-adminlte.component.css'
