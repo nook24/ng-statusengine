@@ -1,0 +1,16 @@
+<nav class="mt-2">
+  <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview"
+      role="menu">
+    <!-- Add icons to the links using the .nav-icon class
+with font-awesome or any other icon font library -->
+    <li class="nav-item" *ngFor="let menuItem of getMenu()">
+      <a [routerLink]="menuItem.route" class="nav-link">
+        <mat-icon aria-hidden="false" class="nav-icon inline-icon"
+                  fontIcon="{{menuItem.icon}}"></mat-icon>
+        <p class="pl-1">
+          {{ menuItem.name }}
+        </p>
+      </a>
+    </li>
+  </ul>
+</nav>

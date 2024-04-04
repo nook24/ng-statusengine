@@ -3,6 +3,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ChangeLanguageComponent } from "../../change-language/change-language.component";
+import { TranslocoDirective, TranslocoPipe } from '@jsverse/transloco';
+import { MenuComponent } from '../../menu/menu.component';
 
 @Component({
   selector: 'app-layout-adminlte',
@@ -10,7 +12,10 @@ import { ChangeLanguageComponent } from "../../change-language/change-language.c
   imports: [
     MatIconModule,
     RouterLink,
-    ChangeLanguageComponent
+    ChangeLanguageComponent,
+    TranslocoDirective,
+    TranslocoPipe,
+    MenuComponent
   ],
   templateUrl: './layout-adminlte.component.html',
   styleUrl: './layout-adminlte.component.css'

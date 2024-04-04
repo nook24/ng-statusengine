@@ -1,4 +1,5 @@
 {
+  "Search": "",
   "Dashboard": "Dashboard",
   "Home": "Startseite",
   "Monitored nodes": "Überwachte Server",
@@ -19,5 +20,7 @@
   "Services Critical": "Dienste kritisch",
   "{0} services of {1} are in state: Critical": "{{0}} Dienste von {{1}} sind im Status: Kritisch",
   "Services Unknown": "Dienste Unbekannt",
-  "{0} services of {1} are in state: Unknown": "{{0}} Dienste von {{1}} sind im Status: Unbekannt"
+  "{0} services of {1} are in state: Unknown": "{{0}} Dienste von {{1}} sind im Status: Unbekannt",
+  "Nodes": "Server",
+  "Services": "Dienste"
 }
