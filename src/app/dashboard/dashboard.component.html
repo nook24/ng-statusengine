@@ -1,279 +1,316 @@
 <app-layout-adminlte>
+  <ng-container *transloco="let t">
 
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
 
-          <h1>
-            <mat-icon class="nav-icon" class="inline-icon" fontIcon="speed" inline="true"></mat-icon>
-            Dashboard
-          </h1>
+            <h1>
+              <mat-icon class="nav-icon inline-icon" fontIcon="speed" inline="true"></mat-icon>
+              {{ t('Dashboard') }}
+            </h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">
+                <a [routerLink]="['/']">
+                  {{ t('Home') }}
+                </a>
+              </li>
+              <li class="breadcrumb-item active">
+                {{ t('Dashboard') }}
+              </li>
+            </ol>
+          </div>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item">
-              <a [routerLink]="['/']">
-                Home
-              </a>
-            </li>
-            <li class="breadcrumb-item active">Dashboard</li>
-          </ol>
-        </div>
-      </div>
-    </div><!-- /.container-fluid -->
-  </section>
+      </div><!-- /.container-fluid -->
+    </section>
 
-  <!-- Main content -->
-  <section class="content">
+    <!-- Main content -->
+    <section class="content">
 
-    <div class="row">
+      <div class="row">
 
-      <div class="col-md-4 col-sm-6 col-12">
-        <div class="info-box">
+        <div class="col-md-4 col-sm-6 col-12">
+          <div class="info-box">
           <span class="info-box-icon bg-primary">
-            <mat-icon class="nav-icon" class="inline-icon" fontIcon="dns" inline="true"></mat-icon>
+            <mat-icon class="nav-icon inline-icon" fontIcon="dns" inline="true"></mat-icon>
           </span>
-          <div class="info-box-content">
-            <span class="info-box-text">Monitored nodes</span>
-            <span class="info-box-number">
+            <div class="info-box-content">
+              <span class="info-box-text">
+                {{ t('Monitored nodes') }}
+              </span>
+              <span class="info-box-number">
               {{ dashboard.number_of_monitored_hosts }}
             </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4 col-sm-6 col-12">
-        <div class="info-box">
+        <div class="col-md-4 col-sm-6 col-12">
+          <div class="info-box">
           <span class="info-box-icon bg-secondary">
-            <mat-icon class="nav-icon" class="inline-icon" fontIcon="settings" inline="true"></mat-icon>
+            <mat-icon class="nav-icon inline-icon" fontIcon="settings" inline="true"></mat-icon>
           </span>
-          <div class="info-box-content">
-            <span class="info-box-text">Monitored services</span>
-            <span class="info-box-number">
+            <div class="info-box-content">
+              <span class="info-box-text">
+                {{ t('Monitored services') }}
+              </span>
+              <span class="info-box-number">
               {{ dashboard.number_of_monitored_services }}
             </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4 col-sm-6 col-12">
-        <div class="info-box">
+        <div class="col-md-4 col-sm-6 col-12">
+          <div class="info-box">
           <span class="info-box-icon bg-danger">
-            <mat-icon class="nav-icon" class="inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
+            <mat-icon class="nav-icon inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
           </span>
-          <div class="info-box-content">
-            <span class="info-box-text">Detected Issues</span>
-            <span class="info-box-number">
+            <div class="info-box-content">
+              <span class="info-box-text">
+                {{ t('Detected Issues') }}
+              </span>
+              <span class="info-box-number">
               {{ dashboard.number_of_service_problems }}
             </span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <!-- start node status -->
-      <div class="col-md-6 col-12">
-        <div class="card card-primary card-outline">
-          <div class="card-header">
-            <h3 class="card-title">
-              <mat-icon class="nav-icon" class="inline-icon" fontIcon="dns" inline="true"></mat-icon>
-              Node status summary
-            </h3>
-            <div class="card-tools">
             </div>
           </div>
+        </div>
 
-          <div class="card-body">
-            <div class="info-box bg-success">
+      </div>
+
+      <div class="row">
+        <!-- start node status -->
+        <div class="col-md-6 col-12">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">
+                <mat-icon class="nav-icon inline-icon" fontIcon="dns" inline="true"></mat-icon>
+                {{ t('Node status summary') }}
+              </h3>
+              <div class="card-tools">
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="info-box bg-success">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
+                <mat-icon class="nav-icon inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
-              <div class="info-box-content">
-                <span class="info-box-text">Nodes Up</span>
-                <span class="info-box-number">
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    {{ t('Nodes Up') }}
+                  </span>
+                  <span class="info-box-number">
                   {{ dashboard.hoststatus_overview.up }}
                 </span>
-                <div class="progress">
-                  <div class="progress-bar"
-                       style="width: {{ dashboard.hoststatus_overview.up * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
+                  <div class="progress">
+                    <div class="progress-bar"
+                         [style.width.%]="dashboard.hoststatus_overview.up * 100 / dashboard.number_of_monitored_hosts">
+                    </div>
                   </div>
-                </div>
-                <span class="progress-description">
-                  {{ dashboard.hoststatus_overview.up }}
-                  nodes of
-                  {{ dashboard.number_of_monitored_hosts }}
-                  are in state: Up
+                  <span class="progress-description">
+                    {{
+                      t('{0} nodes of {1} are in state: Up', {
+                        '0': dashboard.hoststatus_overview.up,
+                        '1': dashboard.number_of_monitored_hosts
+                      })
+                    }}
                 </span>
+                </div>
               </div>
-            </div>
 
-            <div class="info-box bg-danger">
+              <div class="info-box bg-danger">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" class="inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
+                <mat-icon class="nav-icon inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
               </span>
-              <div class="info-box-content">
-                <span class="info-box-text">Nodes Down</span>
-                <span class="info-box-number">
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    {{ t('Nodes Down') }}
+                  </span>
+                  <span class="info-box-number">
                   {{ dashboard.hoststatus_overview.down }}
                 </span>
-                <div class="progress">
-                  <div class="progress-bar"
-                       style="width: {{ dashboard.hoststatus_overview.down * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
+                  <div class="progress">
+                    <div class="progress-bar"
+                         [style.width.%]="dashboard.hoststatus_overview.down * 100 / dashboard.number_of_monitored_hosts">
+                    </div>
                   </div>
-                </div>
-                <span class="progress-description">
-                  {{ dashboard.hoststatus_overview.down }}
-                  nodes of
-                  {{ dashboard.number_of_monitored_hosts }}
-                  are in state: Down
+                  <span class="progress-description">
+                    {{
+                      t('{0} nodes of {1} are in state: Down', {
+                        '0': dashboard.hoststatus_overview.down,
+                        '1': dashboard.number_of_monitored_hosts
+                      })
+                    }}
                 </span>
+                </div>
               </div>
-            </div>
 
-            <div class="info-box bg-secondary">
+              <div class="info-box bg-secondary">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
+                <mat-icon class="nav-icon inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
-              <div class="info-box-content">
-                <span class="info-box-text">Nodes Unreachable</span>
-                <span class="info-box-number">
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    {{ t('Nodes Unreachable') }}
+                  </span>
+                  <span class="info-box-number">
                   {{ dashboard.hoststatus_overview.unreachable }}
                 </span>
-                <div class="progress">
-                  <div class="progress-bar"
-                       style="width: {{ dashboard.hoststatus_overview.unreachable * 100 / dashboard.number_of_monitored_hosts | number: '1.0-0' }}%">
+                  <div class="progress">
+                    <div class="progress-bar"
+                         [style.width.%]="dashboard.hoststatus_overview.unreachable * 100 / dashboard.number_of_monitored_hosts">
+                    </div>
                   </div>
-                </div>
-                <span class="progress-description">
-                  {{ dashboard.hoststatus_overview.unreachable }}
-                  nodes of
-                  {{ dashboard.number_of_monitored_hosts }}
-                  are in state: Unreachable
+                  <span class="progress-description">
+                    {{
+                      t('{0} nodes of {1} are in state: Unreachable', {
+                        '0': dashboard.hoststatus_overview.unreachable,
+                        '1': dashboard.number_of_monitored_hosts
+                      })
+                    }}
                 </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- End of node status -->
+        <!-- End of node status -->
 
-      <!-- start service status -->
-      <div class="col-md-6 col-12">
-        <div class="card card-primary card-outline">
-          <div class="card-header">
-            <h3 class="card-title">
-              <mat-icon class="nav-icon" class="inline-icon" fontIcon="settings" inline="true"></mat-icon>
-              Service status summary
-            </h3>
-            <div class="card-tools">
+        <!-- start service status -->
+        <div class="col-md-6 col-12">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">
+                <mat-icon class="nav-icon inline-icon" fontIcon="settings" inline="true"></mat-icon>
+                {{ t('Service status summary') }}
+              </h3>
+              <div class="card-tools">
+              </div>
             </div>
-          </div>
 
-          <div class="card-body">
-            <div class="info-box bg-success">
+            <div class="card-body">
+              <div class="info-box bg-success">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
+                <mat-icon class="nav-icon inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
-              <div class="info-box-content">
-                <span class="info-box-text">Services Ok</span>
-                <span class="info-box-number">
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    {{ t('Services Ok') }}
+                  </span>
+                  <span class="info-box-number">
                   {{ dashboard.servicestatus_overview.ok }}
                 </span>
-                <div class="progress">
-                  <div class="progress-bar"
-                       style="width: {{ dashboard.servicestatus_overview.ok * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                  <div class="progress">
+                    <div class="progress-bar"
+                         [style.width.%]="dashboard.servicestatus_overview.ok * 100 / dashboard.number_of_monitored_services">
+                    </div>
                   </div>
-                </div>
-                <span class="progress-description">
-                  {{ dashboard.servicestatus_overview.ok }}
-                  services of
-                  {{ dashboard.number_of_monitored_services }}
-                  are in state: Ok
+                  <span class="progress-description">
+                    {{
+                      t('{0} services of {1} are in state: Ok', {
+                        '0': dashboard.servicestatus_overview.ok,
+                        '1': dashboard.number_of_monitored_services
+                      })
+                    }}
                 </span>
+                </div>
               </div>
-            </div>
 
-            <div class="info-box bg-warning">
+              <div class="info-box bg-warning">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" class="inline-icon" fontIcon="warning" inline="true"></mat-icon>
+                <mat-icon class="nav-icon inline-icon" fontIcon="warning" inline="true"></mat-icon>
               </span>
-              <div class="info-box-content">
-                <span class="info-box-text">Services Warning</span>
-                <span class="info-box-number">
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    {{ t('Services Warning') }}
+                  </span>
+                  <span class="info-box-number">
                   {{ dashboard.servicestatus_overview.warning }}
                 </span>
-                <div class="progress">
-                  <div class="progress-bar"
-                       style="width: {{ dashboard.servicestatus_overview.warning * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                  <div class="progress">
+                    <div class="progress-bar"
+                         [style.width.%]="dashboard.servicestatus_overview.warning * 100 / dashboard.number_of_monitored_services">
+                    </div>
                   </div>
-                </div>
-                <span class="progress-description">
-                  {{ dashboard.servicestatus_overview.warning }}
-                  services of
-                  {{ dashboard.number_of_monitored_services }}
-                  are in state: Warning
+                  <span class="progress-description">
+               {{
+                      t('{0} services of {1} are in state: Warning', {
+                        '0': dashboard.servicestatus_overview.warning,
+                        '1': dashboard.number_of_monitored_services
+                      })
+                    }}
                 </span>
+                </div>
               </div>
-            </div>
 
-            <div class="info-box bg-danger">
+              <div class="info-box bg-danger">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" class="inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
+                <mat-icon class="nav-icon inline-icon" fontIcon="error_outline" inline="true"></mat-icon>
               </span>
-              <div class="info-box-content">
-                <span class="info-box-text">Services Critical</span>
-                <span class="info-box-number">
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    {{ t('Services Critical') }}
+                  </span>
+                  <span class="info-box-number">
                   {{ dashboard.servicestatus_overview.critical }}
                 </span>
-                <div class="progress">
-                  <div class="progress-bar"
-                       style="width: {{ dashboard.servicestatus_overview.critical * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                  <div class="progress">
+                    <div class="progress-bar"
+                         [style.width.%]="dashboard.servicestatus_overview.critical * 100 / dashboard.number_of_monitored_services">
+                    </div>
                   </div>
-                </div>
-                <span class="progress-description">
-                  {{ dashboard.servicestatus_overview.critical }}
-                  services of
-                  {{ dashboard.number_of_monitored_services }}
-                  are in state: Critical
+                  <span class="progress-description">
+                   {{
+                      t('{0} services of {1} are in state: Critical', {
+                        '0': dashboard.servicestatus_overview.critical,
+                        '1': dashboard.number_of_monitored_services
+                      })
+                    }}
                 </span>
+                </div>
               </div>
-            </div>
 
-            <div class="info-box bg-secondary">
+              <div class="info-box bg-secondary">
               <span class="info-box-icon">
-                <mat-icon class="nav-icon" class="inline-icon" fontIcon="check" inline="true"></mat-icon>
+                <mat-icon class="nav-icon inline-icon" fontIcon="check" inline="true"></mat-icon>
               </span>
-              <div class="info-box-content">
-                <span class="info-box-text">Services Unknown</span>
-                <span class="info-box-number">
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    {{ t('Services Unknown') }}
+                  </span>
+                  <span class="info-box-number">
                   {{ dashboard.servicestatus_overview.unknown }}
                 </span>
-                <div class="progress">
-                  <div class="progress-bar"
-                       style="width: {{ dashboard.servicestatus_overview.unknown * 100 / dashboard.number_of_monitored_services | number: '1.0-0' }}%">
+                  <div class="progress">
+                    <div class="progress-bar"
+                         [style.width.%]="dashboard.servicestatus_overview.unknown * 100 / dashboard.number_of_monitored_services">
+                    </div>
                   </div>
-                </div>
-                <span class="progress-description">
-                  {{ dashboard.servicestatus_overview.unknown }}
-                  services of
-                  {{ dashboard.number_of_monitored_services }}
-                  are in state: Unknown
+                  <span class="progress-description">
+               {{
+                      t('{0} services of {1} are in state: Unknown', {
+                        '0': dashboard.servicestatus_overview.unknown,
+                        '1': dashboard.number_of_monitored_services
+                      })
+                    }}
                 </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- End of service status -->
+
       </div>
-      <!-- End of service status -->
 
-    </div>
+    </section>
+    <!-- /.content -->
 
-  </section>
-  <!-- /.content -->
-
-
+  </ng-container>
 </app-layout-adminlte>

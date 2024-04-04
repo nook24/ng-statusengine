@@ -1,0 +1,23 @@
+{
+  "Dashboard": "Dashboard",
+  "Home": "Startseite",
+  "Monitored nodes": "Überwachte Server",
+  "Monitored services": "Überwachte Dienste",
+  "Detected Issues": "Erkannte Probleme",
+  "Node status summary": "Server Statusübersicht",
+  "Nodes Up": "Server erreichbar",
+  "{0} nodes of {1} are in state: Up": "{{0}} Server von {{1}} sind im Status: Erreichbar",
+  "Nodes Down": "Server nicht verfügbar",
+  "{0} nodes of {1} are in state: Down": "{{0}} Server von {{1}} sind im Status: Nicht verfügbar",
+  "Nodes Unreachable": "Server nicht erreichbar",
+  "{0} nodes of {1} are in state: Unreachable": "{{0}} Server von {{1}} sind im Status: Nicht erreichbar",
+  "Service status summary": "Dienst Statusübersicht",
+  "Services Ok": "Dienste Ok",
+  "{0} services of {1} are in state: Ok": "{{0}} Dienste von {{1}} sind im Status: Ok",
+  "Services Warning": "Dienste warnung",
+  "{0} services of {1} are in state: Warning": "{{0}} Dienste von {{1}} sind im Status: Warnung",
+  "Services Critical": "Dienste kritisch",
+  "{0} services of {1} are in state: Critical": "{{0}} Dienste von {{1}} sind im Status: Kritisch",
+  "Services Unknown": "Dienste Unbekannt",
+  "{0} services of {1} are in state: Unknown": "{{0}} Dienste von {{1}} sind im Status: Unbekannt"
+}

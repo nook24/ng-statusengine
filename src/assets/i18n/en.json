@@ -1,0 +1,23 @@
+{
+  "Dashboard": "",
+  "Home": "",
+  "Monitored nodes": "",
+  "Monitored services": "",
+  "Detected Issues": "",
+  "Node status summary": "",
+  "Nodes Up": "",
+  "{0} nodes of {1} are in state: Up": "{{0}} nodes of {{1}} are in state: Up",
+  "Nodes Down": "",
+  "{0} nodes of {1} are in state: Down": "{{0}} nodes of {{1}} are in state: Down",
+  "Nodes Unreachable": "",
+  "{0} nodes of {1} are in state: Unreachable": "{{0}} nodes of {{1}} are in state: Unreachable",
+  "Service status summary": "",
+  "Services Ok": "",
+  "{0} services of {1} are in state: Ok": "{{0}} services of {{1}} are in state: Ok",
+  "Services Warning": "",
+  "{0} services of {1} are in state: Warning": "{{0}} services of {{1}} are in state: Warning",
+  "Services Critical": "",
+  "{0} services of {1} are in state: Critical": "{{0}} services of {{1}} are in state: Critical",
+  "Services Unknown": "",
+  "{0} services of {1} are in state: Unknown": "{{0}} services of {{1}} are in state: Unknown"
+}

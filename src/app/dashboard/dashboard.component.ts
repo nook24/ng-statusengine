@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { DecimalPipe, NgIf } from '@angular/common';
 import { LayoutAdminlteComponent } from '../layouts/layout-adminlte/layout-adminlte.component';
 import { RouterLink } from '@angular/router';
+import { TranslocoDirective } from "@jsverse/transloco";
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +22,8 @@ import { RouterLink } from '@angular/router';
     MatGridListModule,
     DecimalPipe,
     NgIf,
-    RouterLink
+    RouterLink,
+    TranslocoDirective
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
