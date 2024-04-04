@@ -1,106 +1,206 @@
-<app-layout-material>
-  <div class="filter">
-    <div>
-      <label>
-        Hostname
-        <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params.hostname__like"
-               appDebounce
-               name="hostname__like"
-               type="text">
-      </label>
-    </div>
+<app-layout-adminlte>
+  <ng-container *transloco="let t">
 
-    <div>
-      <label>
-        Status Up
-        <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params['state[0]']"
-               appDebounce
-               name="state_up"
-               trueFalseValue
-               trueValue="up"
-               type="checkbox">
-      </label>
-    </div>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
 
-    <div>
-      <label>
-        Status Down
-        <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params['state[1]']"
-               appDebounce
-               name="state_down"
-               trueFalseValue
-               trueValue="down"
-               type="checkbox">
-      </label>
-    </div>
+            <h1>
+              <mat-icon class="nav-icon inline-icon" fontIcon="dns" inline="true"></mat-icon>
+              {{ t('Nodes') }}
+            </h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">
+                <a [routerLink]="['/']">
+                  {{ t('Home') }}
+                </a>
+              </li>
+              <li class="breadcrumb-item active">
+                {{ t('Nodes') }}
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-    <div>
-      <label>
-        Status Unreachable
-        <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params['state[2]']"
-               appDebounce
-               name="state_unreachable"
-               trueFalseValue
-               trueValue="unreachable"
-               type="checkbox">
-      </label>
-    </div>
+    <!-- Main content -->
+    <section class="content">
 
-  </div>
+      <div class="card card-outline card-primary">
+        <div class="card-header">
+          <h3 class="card-title">
+            {{ t('Filter') }}
+          </h3>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon class="nav-icon inline-icon" fontIcon="dns" inline="true"></mat-icon>
+                  </span>
+                </div>
+                <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params.hostname__like"
+                       appDebounce
+                       class="form-control"
+                       name="hostname__like"
+                       [placeholder]="'Type to filter by node name' | transloco"
+                       type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col-md-3 col-12">
+
+              <fieldset>
+                <legend>
+                  {{ t('Filter by state') }}
+                </legend>
+
+                <div class="custom-control custom-checkbox">
+                  <div class="custom-control custom-checkbox">
+                    <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params['state[0]']"
+                           class="custom-control-input custom-control-input-success"
+                           appDebounce
+                           name="state_unreachable"
+                           trueFalseValue
+                           trueValue="unreachable"
+                           type="checkbox"
+                           id="filterStateUp">
+                    <label for="filterStateUp" class="custom-control-label">
+                      {{ t('Up') }}
+                    </label>
+                  </div>
+                </div>
+
+                <div class="custom-control custom-checkbox">
+                  <div class="custom-control custom-checkbox">
+                    <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params['state[1]']"
+                           class="custom-control-input custom-control-input-danger"
+                           appDebounce
+                           name="state_unreachable"
+                           trueFalseValue
+                           trueValue="unreachable"
+                           type="checkbox"
+                           id="filterStateDown">
+                    <label for="filterStateDown" class="custom-control-label">
+                      {{ t('Down') }}
+                    </label>
+                  </div>
+                </div>
+
+                <div class="custom-control custom-checkbox">
+                  <div class="custom-control custom-checkbox">
+                    <input (debouncedValue)="onSearchTermChange($event)" [(ngModel)]="params['state[2]']"
+                           class="custom-control-input custom-control-input-secondary"
+                           appDebounce
+                           name="state_unreachable"
+                           trueFalseValue
+                           trueValue="unreachable"
+                           type="checkbox"
+                           id="filterStateUnreachable">
+                    <label for="filterStateUnreachable" class="custom-control-label">
+                      {{ t('Unreachable') }}
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
 
-  <table (matSortChange)="announceSortChange($event)" *ngIf="dataSource" [dataSource]="dataSource"
-         class="mat-elevation-z8" mat-table matSort
-         matSort matSortActive="created">
+      <table (matSortChange)="announceSortChange($event)" *ngIf="dataSource" [dataSource]="dataSource"
+             class="mat-elevation-z8 mt-3" mat-table
+             matSort matSortActive="created">
 
-    <ng-container matColumnDef="current_state">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by current state">
-        Current State
-      </th>
-      <td *matCellDef="let element" mat-cell>
-        <app-nodes-status-icon [state]="element.current_state"></app-nodes-status-icon>
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="current_state">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by current state">
+            Current State
+          </th>
+          <td *matCellDef="let element" mat-cell>
+            <app-nodes-status-icon [state]="element.current_state"></app-nodes-status-icon>
+          </td>
+        </ng-container>
 
-    <ng-container matColumnDef="hostname">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by node name">
-        Node Name
-      </th>
-      <td *matCellDef="let element" mat-cell>
-        <a [routerLink]="['/nodes', 'details', element.hostname ]">{{ element.hostname }}</a>
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="hostname">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by node name">
+            Node Name
+          </th>
+          <td *matCellDef="let element" mat-cell>
+            <a [routerLink]="['/nodes', 'details', element.hostname ]">
+              {{ element.hostname }}
+            </a>
 
-    <ng-container matColumnDef="last_check">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by last check">
-        Last Check
-      </th>
-      <td *matCellDef="let element" mat-cell> {{ element.last_check * 1000 | date: 'mediumTime' }}</td>
-    </ng-container>
+            <span [hidden]="!element.problem_has_been_acknowledged"
+                  class="badge badge-pill badge-secondary" [title]="'Issue has been acknowledged' | transloco">
+              <mat-icon class="nav-icon inline-icon" fontIcon="mode_comment" inline="true"></mat-icon>
+            </span>
 
-    <ng-container matColumnDef="last_state_change">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by state since">
-        State since
-      </th>
-      <td *matCellDef="let element" mat-cell> {{ element.last_state_change * 1000 | date: 'long' }}</td>
-    </ng-container>
+            <span [hidden]="element.scheduled_downtime_depth == 0"
+                  class="badge badge-pill badge-secondary" [title]="'Scheduled downtime is running' | transloco">
+              <mat-icon class="nav-icon inline-icon" fontIcon="power_off" inline="true"></mat-icon>
+            </span>
 
-    <ng-container matColumnDef="service_summary">
-      <th *matHeaderCellDef mat-header-cell> Service summary</th>
-      <td *matCellDef="let element" mat-cell>
-        O: {{ element.servicestatus_overview.ok }}
-        W: {{ element.servicestatus_overview.warning }}
-        C: {{ element.servicestatus_overview.critical }}
-        U: {{ element.servicestatus_overview.unknown }}
-      </td>
-    </ng-container>
+            <span [hidden]="!element.is_flapping"
+                  class="badge badge-pill badge-secondary" [title]="'State of node is flapping' | transloco">
+              <mat-icon class="nav-icon inline-icon" fontIcon="blur_on" inline="true"></mat-icon>
+            </span>
 
-    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+          </td>
+        </ng-container>
 
-    <!-- Row shown when there is no matching data. -->
-    <tr *matNoDataRow class="mat-row">
-      <td class="mat-cell" colspan="4">No data matching the filter</td>
-    </tr>
-  </table>
-</app-layout-material>
+        <ng-container matColumnDef="last_check">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by last check">
+            Last Check
+          </th>
+          <td *matCellDef="let element" mat-cell> {{ element.last_check * 1000 | date: 'mediumTime' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="last_state_change">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by state since">
+            State since
+          </th>
+          <td *matCellDef="let element" mat-cell> {{ element.last_state_change * 1000 | date: 'long' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="service_summary">
+          <th *matHeaderCellDef mat-header-cell> Service summary</th>
+          <td *matCellDef="let element" mat-cell>
+            <div class="btn-group btn-group-sm d-flex">
+              <button class="btn btn-success">
+                {{ element.servicestatus_overview.ok }}
+              </button>
+              <button class="btn btn-warning">
+                {{ element.servicestatus_overview.warning }}
+              </button>
+              <button class="btn btn-danger">
+                {{ element.servicestatus_overview.critical }}
+              </button>
+              <button class="btn btn-secondary">
+                {{ element.servicestatus_overview.unknown }}
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr *matNoDataRow class="mat-row">
+          <td class="mat-cell" colspan="4">No data matching the filter</td>
+        </tr>
+      </table>
+    </section>
+  </ng-container>
+</app-layout-adminlte>

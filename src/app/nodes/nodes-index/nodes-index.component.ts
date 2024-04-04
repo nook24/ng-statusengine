@@ -5,7 +5,7 @@ import { NodesService } from '../nodes.service';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { DatePipe, NgIf } from '@angular/common';
+import { DatePipe, NgForOf, NgIf } from '@angular/common';
 import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { NodesStatusIconComponent } from '../nodes-status-icon/nodes-status-icon.component';
@@ -13,13 +13,16 @@ import { FormsModule } from "@angular/forms";
 import { DebounceDirective } from "../../directives/debounce.directive";
 import { TrueFalseDirective } from "../../true-false.directive";
 import { RouterLink } from "@angular/router";
-import { LayoutMaterialComponent } from "../../layouts/layout-material/layout-material.component";
+import { LayoutAdminlteComponent } from '../../layouts/layout-adminlte/layout-adminlte.component';
+import { TranslocoDirective, TranslocoPipe } from '@jsverse/transloco';
+import { MatIcon } from '@angular/material/icon';
+import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 
 @Component({
   selector: 'app-nodes-index',
   standalone: true,
   imports: [
-    LayoutMaterialComponent,
+    LayoutAdminlteComponent,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
@@ -30,7 +33,14 @@ import { LayoutMaterialComponent } from "../../layouts/layout-material/layout-ma
     FormsModule,
     DebounceDirective,
     TrueFalseDirective,
-    RouterLink
+    RouterLink,
+    TranslocoDirective,
+    NgForOf,
+    MatIcon,
+    MatCard,
+    MatCardContent,
+    MatCardTitle,
+    TranslocoPipe
   ],
   templateUrl: './nodes-index.component.html',
   styleUrl: './nodes-index.component.css'
@@ -99,7 +109,7 @@ export class NodesIndexComponent {
   private loadNodes() {
     this.subscriptions.add(this.NodesService.getNodesIndex(this.params)
       .subscribe((nodes) => {
-        this.nodes = nodes; // Wird aktuell garnicht genutzt
+        this.nodes = nodes;
 
         // Wird für die Tabelle genutzt
         this.dataSource = new MatTableDataSource(nodes);
